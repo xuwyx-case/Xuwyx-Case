@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!129 &1
+PlayerSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 26
+  productGUID: 31b3139aa62e4f11b28f0f938186d8d2
+  AndroidProfiler: 0
+  AndroidFilterTouchesWhenObscured: 0
+  AndroidEnableSustainedPerformanceMode: 0
+  companyName: Xuwyx
+  productName: Xuwyx Case
+  defaultScreenWidth: 1920
+  defaultScreenHeight: 1080
+  defaultScreenOrientation: 4
+  useOSAutorotation: 1
+  allowedAutorotateToPortrait: 0
+  allowedAutorotateToPortraitUpsideDown: 0
+  allowedAutorotateToLandscapeRight: 1
+  allowedAutorotateToLandscapeLeft: 1
+  use32BitDisplayBuffer: 1
+  preserveFramebufferAlpha: 0
+  disableDepthAndStencilBuffers: 0
+  androidStartInFullscreen: 1
+  androidRenderOutsideSafeArea: 1
+  androidUseSwappy: 1
+  androidBlitType: 0
+  androidResizableWindow: 0
+  applicationIdentifier:
+    Android: com.xuwyx.app
+    Standalone: com.xuwyx.app
+  bundleVersion: 2.43.0
+  AndroidBundleVersionCode: 24300
+  AndroidMinSdkVersion: 23
+  AndroidTargetSdkVersion: 0
+  AndroidTargetArchitectures: 3
+  AndroidBuildApkPerCpuArchitecture: 0
+  AndroidIsGame: 1
+  scriptingBackend:
+    Android: 0
+  il2cppCompilerConfiguration:
+    Android: 0
+  managedStrippingLevel:
+    Android: 1
+
