@@ -1,0 +1,46 @@
+; Xuwyx Case — Godot project configuration.
+; Keep platform-wide settings here; feature settings belong in focused scripts/scenes.
+
+config_version=5
+
+[application]
+
+config/name="Xuwyx Case"
+config/description="Xuwyx Case Android game"
+run/main_scene="res://scenes/loading/loading_screen.tscn"
+config/features=PackedStringArray("4.7", "GL Compatibility")
+boot_splash/image="res://assets/branding/icon.png"
+boot_splash/bg_color=Color(0.0196, 0.0471, 0.0863, 1)
+boot_splash/fullsize=false
+config/icon="res://assets/branding/icon.png"
+
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/size/mode=3
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+window/handheld/orientation=0
+window/energy_saving/keep_screen_on=true
+window/vsync/vsync_mode=1
+
+[application/run]
+
+max_fps=120
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
+textures/default_filters/use_nearest_mipmap_filter=false
+textures/canvas_textures/default_texture_filter=1
+anti_aliasing/quality/msaa_2d=0
+
+[audio]
+
+driver/enable_input=false
+
+[network]
+
+limits/debugger/max_queued_messages=256
