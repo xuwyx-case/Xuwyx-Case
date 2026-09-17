@@ -1,0 +1,257 @@
+[gd_scene load_steps=9 format=3]
+
+[ext_resource type="Script" path="res://scripts/menu/main_menu.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/branding/icon.svg" id="2_icon"]
+
+[sub_resource type="Gradient" id="Gradient_background"]
+offsets = PackedFloat32Array(0, 0.5, 1)
+colors = PackedColorArray(0.0117647, 0.0313725, 0.0588235, 1, 0.0235294, 0.0941176, 0.168627, 1, 0.00784314, 0.0235294, 0.0470588, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture_background"]
+gradient = SubResource("Gradient_background")
+width = 1280
+height = 720
+fill_from = Vector2(0, 0)
+fill_to = Vector2(1, 1)
+
+[sub_resource type="StyleBoxFlat" id="Style_header"]
+bg_color = Color(0.0196078, 0.0588235, 0.105882, 0.88)
+border_width_bottom = 1
+border_color = Color(0.133333, 0.419608, 0.733333, 0.5)
+
+[sub_resource type="StyleBoxFlat" id="Style_menu_panel"]
+bg_color = Color(0.0156863, 0.0509804, 0.0941176, 0.86)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.145098, 0.443137, 0.780392, 0.42)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+shadow_color = Color(0, 0, 0, 0.38)
+shadow_size = 28
+
+[sub_resource type="StyleBoxFlat" id="Style_button_disabled"]
+bg_color = Color(0.0666667, 0.301961, 0.560784, 0.65)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.270588, 0.65098, 1, 0.52)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+
+[sub_resource type="StyleBoxFlat" id="Style_tag"]
+bg_color = Color(0.0705882, 0.345098, 0.65098, 0.22)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.219608, 0.552941, 0.886275, 0.35)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+content_margin_left = 14.0
+content_margin_top = 7.0
+content_margin_right = 14.0
+content_margin_bottom = 7.0
+
+[sub_resource type="StyleBoxFlat" id="Style_footer"]
+bg_color = Color(0.00784314, 0.027451, 0.0509804, 0.72)
+border_width_top = 1
+border_color = Color(0.101961, 0.286275, 0.486275, 0.35)
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_script")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture_background")
+expand_mode = 1
+stretch_mode = 6
+mouse_filter = 2
+
+[node name="AccentLeft" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -640.0
+offset_top = 92.0
+offset_right = -636.0
+offset_bottom = 640.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0588235, 0.505882, 0.952941, 0.72)
+mouse_filter = 2
+
+[node name="Header" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 90.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("Style_header")
+
+[node name="HeaderMargin" type="MarginContainer" parent="Header"]
+layout_mode = 2
+theme_override_constants/margin_left = 42
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 42
+theme_override_constants/margin_bottom = 15
+
+[node name="HeaderRow" type="HBoxContainer" parent="Header/HeaderMargin"]
+layout_mode = 2
+theme_override_constants/separation = 18
+
+[node name="Icon" type="TextureRect" parent="Header/HeaderMargin/HeaderRow"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+texture = ExtResource("2_icon")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Brand" type="VBoxContainer" parent="Header/HeaderMargin/HeaderRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="Name" type="Label" parent="Header/HeaderMargin/HeaderRow/Brand"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.941176, 0.972549, 1, 1)
+theme_override_font_sizes/font_size = 24
+text = "XUWYX CASE"
+
+[node name="Subtitle" type="Label" parent="Header/HeaderMargin/HeaderRow/Brand"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.478431, 0.65098, 0.803922, 1)
+theme_override_font_sizes/font_size = 12
+text = "ANDROID GAME"
+
+[node name="BuildTag" type="PanelContainer" parent="Header/HeaderMargin/HeaderRow"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("Style_tag")
+
+[node name="Text" type="Label" parent="Header/HeaderMargin/HeaderRow/BuildTag"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.607843, 0.788235, 0.956863, 1)
+theme_override_font_sizes/font_size = 12
+text = "ПЕРВАЯ СБОРКА"
+
+[node name="Body" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 52.0
+offset_top = 112.0
+offset_right = -52.0
+offset_bottom = -78.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MenuPanel" type="PanelContainer" parent="Body"]
+custom_minimum_size = Vector2(620, 430)
+layout_mode = 2
+theme_override_styles/panel = SubResource("Style_menu_panel")
+
+[node name="Padding" type="MarginContainer" parent="Body/MenuPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 70
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 70
+theme_override_constants/margin_bottom = 48
+
+[node name="Content" type="VBoxContainer" parent="Body/MenuPanel/Padding"]
+layout_mode = 2
+theme_override_constants/separation = 18
+alignment = 1
+
+[node name="Title" type="Label" parent="Body/MenuPanel/Padding/Content"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.960784, 0.980392, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.55)
+theme_override_constants/shadow_offset_y = 3
+theme_override_font_sizes/font_size = 44
+text = "ГЛАВНОЕ МЕНЮ"
+horizontal_alignment = 1
+
+[node name="Description" type="Label" parent="Body/MenuPanel/Padding/Content"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.568627, 0.694118, 0.807843, 1)
+theme_override_font_sizes/font_size = 16
+text = "Основа игры готова. Дизайн и игровые функции\nбудут добавляться поэтапно."
+horizontal_alignment = 1
+
+[node name="Spacer" type="Control" parent="Body/MenuPanel/Padding/Content"]
+custom_minimum_size = Vector2(0, 18)
+layout_mode = 2
+
+[node name="PlayButton" type="Button" parent="Body/MenuPanel/Padding/Content"]
+custom_minimum_size = Vector2(420, 72)
+layout_mode = 2
+theme_override_colors/font_disabled_color = Color(0.760784, 0.878431, 0.976471, 0.9)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/disabled = SubResource("Style_button_disabled")
+disabled = true
+text = "ИГРА ПОКА СОЗДАЁТСЯ"
+
+[node name="Hint" type="Label" parent="Body/MenuPanel/Padding/Content"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.376471, 0.521569, 0.65098, 1)
+theme_override_font_sizes/font_size = 13
+text = "Техническая версия без геймплея"
+horizontal_alignment = 1
+
+[node name="Footer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -58.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("Style_footer")
+
+[node name="FooterMargin" type="MarginContainer" parent="Footer"]
+layout_mode = 2
+theme_override_constants/margin_left = 42
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 42
+theme_override_constants/margin_bottom = 12
+
+[node name="FooterRow" type="HBoxContainer" parent="Footer/FooterMargin"]
+layout_mode = 2
+
+[node name="Status" type="Label" parent="Footer/FooterMargin/FooterRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.301961, 0.760784, 0.968627, 1)
+theme_override_font_sizes/font_size = 13
+text = "●  ОСНОВА ПРОЕКТА"
+
+[node name="Version" type="Label" parent="Footer/FooterMargin/FooterRow"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.392157, 0.533333, 0.658824, 1)
+theme_override_font_sizes/font_size = 13
+text = "v2.43.0"
+horizontal_alignment = 2
